@@ -19,14 +19,14 @@ def storage(exception):
     """a function thta call storage.close"""
     try:
         storage.close()
-    except:
-        print("storage.close not found")
+    except AttributeError:
+        print("cant find the attribute close")
+
 
 @app.errorhandler(404)
 def page_not_found(exception):
     """ Function that return an error when a page is not found """
     return make_response(jsonify({'error': "Not found"}), 404)
-
 
 
 if __name__ == "__main__":

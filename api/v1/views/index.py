@@ -32,4 +32,3 @@ def Get_stat():
     for key, value in data.items():
         loadData[key] = storage.count(value)
     return jsonify(loadData)
-
