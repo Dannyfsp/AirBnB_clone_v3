@@ -14,9 +14,12 @@ app.register_blueprint(app_views)
 
 
 @app.teardown_appcontext
-def storage(error):
+def storage(exception):
     """a function thta call storage.close"""
-    storage.close()
+    try:
+        storage.close()
+    except:
+        print("storage.close not found")
 
 
 if __name__ == "__main__":
