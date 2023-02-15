@@ -10,6 +10,11 @@ from models.state import State
 
 @app_views.route('/states', methods=['GET', 'POST'], strict_slashes=False)
 def get_states():
+    """
+    this will use post and get method
+    get - will list all the state
+    post will addd to the state
+    """
     all_state = storage.all('State').values()
     states_list = []
     if request.method == "GET":
@@ -31,7 +36,11 @@ def get_states():
 @app_views.route('/states/<state_id>',
                  methods=['GET', 'PUT', 'DELETE'], strict_slashes=False)
 def get_states_byID(state_id):
-    """get state by their ID"""
+    """get state by their ID
+    it uses get,put and delete http method
+    get will list a state obj
+    put will update the state
+    delete will remove the state"""
     state = storage.get(State, state_id)
     if request.method == "GET":
         if not state:
