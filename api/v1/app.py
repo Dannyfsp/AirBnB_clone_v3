@@ -1,16 +1,20 @@
 #!/usr/bin/python3
 
+"""
+Create a basics routes and register the blueprint
+"""
+
 from models import storage
 from api.v1.views import app_views
 from flask import Flask, Blueprint
 from os import getenv
-
+i
 app = Flask(__name__)
 app.register_blueprint(app_views)
 
 
 @app.teardown_appcontext
-def storage_close():
+def storage():
     """a function thta call storage.close"""
     storage.close()
 
