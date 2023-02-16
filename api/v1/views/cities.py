@@ -70,4 +70,4 @@ def get_cities_byID(city_id):
                     setattr(city, key, value)
             city.updated_at = datetime.utcnow()
             storage.save()
-            return make_response(jsonify(state.to_dict()), 200)
+            return make_response(jsonify(city.to_dict()), 200)
