@@ -62,7 +62,6 @@ def get_states_byID(state_id):
 
         else:
             data = request.get_json()
-            print(data)
             for key, value in data.items():
                 if key not in ['id', 'created_at', 'updated_at']:
                     setattr(state, key, value)
