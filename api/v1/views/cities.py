@@ -65,7 +65,6 @@ def get_cities_byID(city_id):
 
         else:
             data = request.get_json()
-            print(data)
             for key, value in data.items():
                 if key not in ['id', 'created_at', 'updated_at']:
                     setattr(city, key, value)
