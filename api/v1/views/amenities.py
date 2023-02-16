@@ -8,6 +8,7 @@ from api.v1.views import app_views
 from models.amenity import *
 from models.state import State
 
+
 @app_views.route('/amenities', strict_slashes=False, methods=['GET', 'POST'])
 def amenities():
     """Function that retrieve and save a new amenity"""
@@ -26,6 +27,7 @@ def amenities():
             new = Amenity(**request.json)
             new.save()
             return make_response(new.to_dict(), 201)
+
 
 @app_views.route('/amenities/<amenity_id>', strict_slashes=False,
                  methods=['GET', 'DELETE', 'PUT'])
