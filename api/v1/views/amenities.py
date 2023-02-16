@@ -61,4 +61,4 @@ def get_amenities_byID(amenity_id):
                     setattr(amenity, key, value)
             city.updated_at = datetime.utcnow()
             storage.save()
-            return make_response(jsonify(state.to_dict()), 200)
+            return make_response(jsonify(aemenity.to_dict()), 200)
