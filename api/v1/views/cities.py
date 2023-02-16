@@ -46,19 +46,19 @@ def get_cities_byID(city_id):
     get will list a city obj
     put will update the city
     delete will remove the city"""
-    city = storage.get(city, city_id)
+    city = storage.get(City, city_id)
     if request.method == "GET":
-        if not state:
+        if not city:
             abort(404)
         return jsonify(city.to_dict())
     elif request.method == "DELETE":
-        if not state:
+        if not city:
             abort(404)
         storage.delete(city)
         storage.save()
         return make_response(jsonify({}), 200)
     elif request.method == "PUT":
-        if not state:
+        if not city:
             abort(404)
         elif not request.json:
             return make_response(jsonify({'error': "Not a JSON"}), 400)
