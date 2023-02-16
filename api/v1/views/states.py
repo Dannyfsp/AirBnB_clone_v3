@@ -6,7 +6,6 @@ from models.base_model import *
 from flask import abort, jsonify, request, make_response
 from api.v1.views import app_views
 from models.state import State
-from models.state import *
 
 
 @app_views.route('/states', methods=['GET', 'POST'], strict_slashes=False)
@@ -62,6 +61,7 @@ def get_states_byID(state_id):
 
         else:
             data = request.get_json()
+            print(data)
             for key, value in data.items():
                 if key not in ['id', 'created_at', 'updated_at']:
                     setattr(state, key, value)
