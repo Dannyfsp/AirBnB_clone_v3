@@ -76,6 +76,6 @@ def RUD_places_byID(amenity_id):
             for key, value in data.items():
                 if key not in ['id', 'created_at', 'updated_at']:
                     setattr(amenity, key, value)
-            city.updated_at = datetime.utcnow()
+            place.updated_at = datetime.utcnow()
             storage.save()
             return make_response(jsonify(place.to_dict()), 200)

@@ -59,6 +59,6 @@ def get_amenities_byID(amenity_id):
             for key, value in data.items():
                 if key not in ['id', 'created_at', 'updated_at']:
                     setattr(amenity, key, value)
-            city.updated_at = datetime.utcnow()
+            amenity.updated_at = datetime.utcnow()
             storage.save()
-            return make_response(jsonify(aemenity.to_dict()), 200)
+            return make_response(jsonify(amenity.to_dict()), 200)
