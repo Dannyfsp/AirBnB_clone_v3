@@ -8,6 +8,7 @@ from api.v1.views import app_views
 from models.state import State
 from models.state import *
 
+
 @app_views.route('/states', methods=['GET', 'POST'], strict_slashes=False)
 def get_states():
     """
