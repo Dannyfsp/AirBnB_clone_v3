@@ -60,6 +60,6 @@ def RUD_users_byID(user_id):
             for key, value in data.items():
                 if key not in ['id', 'created_at', 'updated_at']:
                     setattr(amenity, key, value)
-            city.updated_at = datetime.utcnow()
+            user.updated_at = datetime.utcnow()
             storage.save()
-            return make_response(jsonify(state.to_dict()), 200)
+            return make_response(jsonify(user.to_dict()), 200)
