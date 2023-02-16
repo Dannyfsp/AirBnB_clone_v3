@@ -29,6 +29,7 @@ def users():
             new.save()
             return make_response(new.to_dict(), 201)
 
+
 @app_views.route('/users/<user_id>', strict_slashes=False,
                  methods=['GET', 'DELETE', 'PUT'])
 def RUD_users_byID(user_id):
