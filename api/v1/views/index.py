@@ -13,17 +13,17 @@ from flask import jsonify
 def Get_status():
     """Get status , getting the status of ap and return json
     """
-    return  jsonify({"status": "OK"})
+    return jsonify({"status": "OK"})
 
 
 @app_views.route('/stats', methods=['GET'], strict_slashes=False)
 def Get_stat():
-    """Get stat of each object, 
+    """Get stat of each object,
     getting the status of ap and return json
     """
 
     data = {"users": 'User', "states": 'State', "amenities": 'Amenity',
-             "cities": 'City', "places": 'Place', "reviews": 'Review'}
+            "cities": 'City', "places": 'Place', "reviews": 'Review'}
     loadData = {}
     for key, value in data.items():
         loadData[key] = storage.count(value)
