@@ -52,6 +52,7 @@ def get_states_byID(state_id):
             abort(404)
         storage.delete(state)
         storage.save()
+        return make_response(jsonify({}), 200)
     elif request.method == "PUT":
         if not state:
             abort(404)
