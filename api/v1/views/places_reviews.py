@@ -5,6 +5,8 @@ from models import storage
 from models.base_model import *
 from flask import abort, jsonify, request, make_response
 from api.v1.views import app_views
+from models.place import Place
+from models.user import User
 from models.city import *
 from models.state import State
 
@@ -14,7 +16,7 @@ from models.state import State
 def reviews_by_state(state_id):
     """Function that retrieve and save a new City"""
     state = storage.get(State, state_id)
-    cities = storage.all('City').values()
+    cities = storage.all('Review').values()
     ls = []
     if state:
         for city in cities:
@@ -39,7 +41,7 @@ def reviews_by_state(state_id):
             else:
                 json = request.json
                 json['state_id'] = state_id
-                new = City(**json)
+                new = Review(**json)
                 new.save()
                 return make_response(new.to_dict(), 201)
     abort(404)
@@ -53,7 +55,7 @@ def RUD_reviews_byID(city_id):
     get will list a city obj
     put will update the city
     delete will remove the city"""
-    city = storage.get(City, city_id)
+    city = storage.get(Review, city_id)
     if request.method == "GET":
         if not city:
             abort(404)
