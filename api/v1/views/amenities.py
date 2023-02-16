@@ -29,7 +29,7 @@ def amenities():
 
 @app_views.route('/amenities/<amenity_id>', strict_slashes=False,
                  methods=['GET', 'DELETE', 'PUT'])
-def get_amenities_byID(city_id):
+def get_amenities_byID(amenity_id):
     """get amenitiea by their ID
     it uses get,put and delete http method
     get will list a amenities obj
