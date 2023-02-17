@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 
 """gettig the state object from databse"""
-from models import storage
 from models.base_model import *
-from flask import abort, jsonify, request, make_response
 from api.v1.views import app_views
+from models import storage
 from models.amenity import *
-from models.state import State
+from flask import jsonify, abort, request, make_response
 
 
 @app_views.route('/amenities', strict_slashes=False, methods=['GET', 'POST'])
